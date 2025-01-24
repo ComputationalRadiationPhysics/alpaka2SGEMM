@@ -26,7 +26,7 @@ struct GMemCoalescedKernel
         {
             int lIndex = linearIndex[0];
 
-            // col is strided -> consecutive threads stay in same row -> coalesced access
+            // This index calculation emulates what a naive CUDA implementation might do
             int row = lIndex / out.getExtents().y();
             int col = lIndex % out.getExtents().y();
 
