@@ -11,8 +11,9 @@
 Usage:
 - We're patching the SGEMM_CUDA project to use custom sizes and to disable verification
     - See the patches in the `build_blogbench` function
-    - Make sure to set the right CUDA compute capability in line 176
-    - The important part is in line 189, which is similar to 10_bench.cpp line 221
+    - Make sure to set the right CUDA compute capability in line 177
+        - This capability should match -DCMAKE_CUDA_ARCHITECTURES=89 in the CMake command in line 34
+    - The important part is in line 190, which is similar to 10_bench.cpp line 221
       As long as those loops are in sync, the benchmarks test the same matrix sizes
     - `int repeat_times = 20;` should match `uint64_t bench_repeats = 20;` in 10_bench.cpp
 - NOTE: The benchmarks will take a while to run, please don't run other tasks in parallel
